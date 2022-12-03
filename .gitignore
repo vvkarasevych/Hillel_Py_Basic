@@ -127,3 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/Lesson_002/JustAFile
