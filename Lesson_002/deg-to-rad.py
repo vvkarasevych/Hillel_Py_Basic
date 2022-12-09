@@ -1,5 +1,5 @@
+#  Home task 1
 #  I decided to use math-module to use P-const in code without my entering of it
-#  And math-module have a built-in convertor of degrees to radians and vice versa
 import math
 
 # Convertor degrees to rad and vice versa
@@ -50,4 +50,4 @@ while True:
         print(f"Please use allowed options! {different_options}")
 
 #  I have 2 weak errors because of ""except Exception:""
-#  How to fix it?
+#  How to fix its?
