@@ -31,5 +31,5 @@ netto_money = round(netto_money, 2)
 taxes = brutto_money - netto_money
 taxes = round(taxes, 2)
 
-# Summory:
-print(f"You will recieve: {netto_money} UAH after you pay {taxes} UAH.")
+# Summary:
+print(f"You will receive: {netto_money} UAH after you pay {taxes} UAH.")
