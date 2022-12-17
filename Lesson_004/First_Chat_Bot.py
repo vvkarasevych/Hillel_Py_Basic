@@ -20,4 +20,5 @@ while True:
     elif "фільм" in user_ask.lower() or "кінотеатр" in user_ask.lower() or "серіал" in user_ask.lower():
         print("Соррі, що втручуюсь, не знаю про що мова, але подивіться серіал \"Wednesday\", він просто бомба!")
     else:
+        #  if we can not find a key-word we will print a message:
         print("Дуже цікаво, але, нажаль, нічого не зрозуміло :(")
