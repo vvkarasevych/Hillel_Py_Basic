@@ -21,7 +21,7 @@ def amount_of_notes(list_to_function: list):
             print("Enter, please, the right number! For Example: Integer")
 
 
-#  function to compare length of the list and amount of notes what user wants to see.
+#  function to help comparing the length of the list and amount of notes what user wants to see.
 def checking_list_and_notes(list_to_function: list):
     #  we receive a list and returning the numbers of its elements.
     checking_list_len_var = len(list_to_function)
