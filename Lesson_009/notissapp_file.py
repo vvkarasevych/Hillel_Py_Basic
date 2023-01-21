@@ -4,9 +4,9 @@ import os
 
 def amount_of_notes(list_to_function: list):
     """
-    function to show amount of notes which will choose by the user
-    :param list_to_function:
-    :return: integer
+    function to show amount of notes which will choose by the user.
+    :param list_to_function: the list what we have with notes.
+    :return: integer - how many notes will be displayed.
     """
     #  The loop to find the right variable from the user
     while True:
@@ -33,8 +33,8 @@ def checking_list_and_notes(list_to_function: list):
     """
     function to help comparing the length of the list and amount of notes what user wants to see.
     We will receive a list and returning the numbers of its elements.
-    :param list_to_function:
-    :return: integer
+    :param list_to_function: the list what we have with notes.
+    :return: integer: how many notes we have already in our list.
     """
     checking_list_len_var = len(list_to_function)
     return checking_list_len_var
@@ -43,8 +43,8 @@ def checking_list_and_notes(list_to_function: list):
 def add_note(list_to_function: list):
     """
     function of adding note to the list.
-    :param list_to_function:
-    :return: nothing
+    :param list_to_function: the list what we have with notes.
+    :return: nothing - we just displayed the the necessary information.
     """
     new_note_var = input("Please enter the note: ")
     list_to_function.append(new_note_var)
@@ -53,8 +53,8 @@ def add_note(list_to_function: list):
 def sorting_earliest(list_to_function: list):
     """
     function of sorting "the earliest"
-    :param list_to_function:
-    :return: nothing
+    :param list_to_function: the list what we have with notes.
+    :return: nothing - we just displayed the the necessary information.
     """
     answer = amount_of_notes(list_to_function)
     for elements in list_to_function[:answer]:
@@ -64,8 +64,8 @@ def sorting_earliest(list_to_function: list):
 def sorting_latest(list_to_function: list):
     """
     function of sorting "the latest"
-    :param list_to_function:
-    :return: nothing
+    :param list_to_function: the list what we have with notes.
+    :return: nothing - we just displayed the the necessary information.
     """
     #  reversing with slice-method
     temporary_list = list_to_function[::-1]
@@ -77,8 +77,8 @@ def sorting_latest(list_to_function: list):
 def sorting_longest(list_to_function: list):
     """
     function of sorting "the longest"
-    :param list_to_function:
-    :return:
+    :param list_to_function: the list what we have with notes.
+    :return: nothing - we just displayed the the necessary information.
     """
     #  sorting by key and reverse.
     temporary_list = sorted(list_to_function, key=len, reverse=True)
@@ -90,8 +90,8 @@ def sorting_longest(list_to_function: list):
 def sorting_shortest(list_to_function: list):
     """
     function of sorting "the shortest"
-    :param list_to_function:
-    :return:
+    :param list_to_function: the list what we have with notes.
+    :return: nothing - we just displayed the the necessary information.
     """
     temporary_list = sorted(list_to_function, key=len)
     answer = amount_of_notes(list_to_function)
@@ -103,8 +103,8 @@ def open_file_func(name_of_file: str):
     """
     Function to open the file and reading it.
     We will return the LIST with all notes from the current file.
-    :param name_of_file:
-    :return: list
+    :param name_of_file: the name of the file we are using.
+    :return: list - the list with notes what we have in the file.
     """
     with open(file=name_of_file, mode="r", encoding="utf-8") as file:
         list_to_return = []
@@ -118,9 +118,9 @@ def save_n_exit(name_of_file: str, list_to_function: list):
     """
     Function to save the list with notions in the current file.
     We will receive the name of the file and list with all notes.
-    :param name_of_file:
-    :param list_to_function:
-    :return:
+    :param name_of_file: the name of the file we are using.
+    :param list_to_function: the list with our notes.
+    :return: nothing: just save the file.
     """
     with open(file=name_of_file, mode="w", encoding="utf-8") as file:
         for elements in list_to_function:
@@ -131,6 +131,8 @@ def save_n_exit(name_of_file: str, list_to_function: list):
 
 #  The main part of the Note-Application
 if __name__ == '__main__':
+    #  declared a list to work
+    many_many_notes_list = []
     #  we ask the file name.
     file_name = input("Enter the name of file in the next way - name.extension, for example \"text.txt\": ")
 
@@ -139,7 +141,6 @@ if __name__ == '__main__':
 
     if check_exist and check_read:
         #  we make a list which will have all our notes.
-        many_many_notes_list = []
         many_many_notes_list = open_file_func(file_name)
 
         #  Let's make a loop
