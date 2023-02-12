@@ -1,12 +1,3 @@
-#  The text below we make a generator
-s = "i am generating words from text"
-s = s.split()
-
-#  For educational purposes only!
-#  print(type(s), s)
-#  print(s)
-
-
 def string_generator(text: list):
     """
     Generator, it takes a list and giving us only a one word
@@ -18,5 +9,13 @@ def string_generator(text: list):
 
 
 if __name__ == '__main__':
+    #  The text below we make a generator
+    s = "i am generating words from text"
+    s = s.split()
+
+    #  For educational purposes only!
+    #  print(type(s), s)
+    #  print(s)
+
     for element in string_generator(s):
         print(element)

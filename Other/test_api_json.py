@@ -10,7 +10,7 @@ url = main_api + urllib.parse.urlencode({"key": key, "from": orig, "to": dest})
 
 json_data = requests.get(url).json()
 
-print("URL: \n" + (url))
+print("URL: \n" + url)
 
 json_data = requests.get(url).json()
 json_status = json_data["info"]["statuscode"]
