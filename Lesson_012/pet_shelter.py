@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 if __name__ == '__main__':
     # create Dogs
     dogs = list()
-    dogs_food = ["bones", "meat", "wet food", "dry food"]
+    dogs_food = ["bones", "meat", "table food", "Pedigree", "Club4Paws"]
     dogs_name = ["Ball", "Sharky", "Baron", "Konig", "Merlin", "Pinky", "Sadly", "Bred", "Sisi", "Princess"]
     dogs_breed = ["Poodle", "Spaniel", "French bulldog", "Chow chow", "Shar-pei", "Shiba inu"]
     last_vet_check = datetime.now()
@@ -21,14 +21,20 @@ if __name__ == '__main__':
             gender=random.choice(["he", "she"]),
             age=random.randint(1, 15),
             breed=random.choice(dogs_breed),
-            preferable_meal=set(random.choices(dogs_food, k=4)),
+            preferable_meal=set(random.choices(dogs_food)),
             last_vet_check=last_vet_check
         ))
 
     # performing pet everyday lifestyle
     for dog in dogs:
         dog.sleep(random.randint(1, 6))
-        dog.eat(set(random.choices(dogs_food, k=3)))
+        for food in random.choices(dogs_food, k=3):
+            #  If the dog has ate = we receive True and break the loop - We have no need to show other food
+            if dog.eat(food):
+                break
+            #  else - the food is wrong for the dog we receive False -- we continue the loop. We must show other food
+            else:
+                continue
         dog.walking(random.randint(2, 6))
 
     # check if all pets are good

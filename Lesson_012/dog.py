@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Dog:
-    def __init__(self, name, age, gender, breed, preferable_meal, last_vet_check):
+    def __init__(self, name: str, age: int, gender: str, breed: str, preferable_meal: set, last_vet_check):
         """
         Dogs, describe the main facts about life.
         :param name: the name of the dog
@@ -50,16 +50,18 @@ class Dog:
     def eat(self, food):
         """
         Describe the act of eating and the dog will woof, if food does not be liked by dog
-        :param food: Foods, which will be acceptable by the dog.
-        :return: nothing, print if the dog has ate or not.
+        :param food: Food, which will be shown to the dog
+        :return: True - if the dog has ate food, False - if the dog does not do that.
         """
         if food in self.preferable_meal:
             print(f"{self.name} eats {food} with pleasure")
             self.fed_check = True
+            return True
         else:
             print(f"{self.name} goes though the {food}")
             self.woof(3)
             self.fed_check = False
+            return False
 
     def woof(self, count: int):
         """
@@ -75,8 +77,13 @@ class Dog:
         :param hours: How many hours walks the dog
         :return: nothing
         """
+        if self.fed_check:
+            print(f"{self.name} goes for a walk with pleasure!")
+            self.walk_check = True
+        elif not self.fed_check and hours <= 2:
+            print(f"{self.name} is hungry, but {self.gender} will go.")
+            self.walk_check = True
+        else:
+            print(f"{self.name} is hungry and {self.gender} will stay at home.")
+            self.walk_check = False
         print(f"{self.name} walked {hours} hours.")
-
-
-if __name__ == "__main__":
-    pass
