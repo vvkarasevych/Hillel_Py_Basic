@@ -5,14 +5,15 @@
 from animals import Cat
 from animals import Hen
 from animals import Cow
+from animals import Dog
 import random
-
 
 if __name__ == '__main__':
     animals = [
         Cat('Дымок', 3, 'дворовая'),
         Hen(1),
-        Cow('Бурёнка', 4)
+        Cow('Бурёнка', 4),
+        Dog("Шарик", 7)
     ]
     food_variants = [
         'трава',
@@ -37,6 +38,15 @@ if __name__ == '__main__':
             a.eat(food)
             what_they_get.append(food)
         what_we_get.append(a.treat())
+
+    #  let's check eat animal or not
+    # check if all pets are good
+    for a in animals:
+        print(f"let's check {a.name}!")
+        if not a.fed_check:
+            print(f"Warning! {a.name} is hungry!")
+        else:
+            print(f"{a.name} is ok for today!")
 
     print(f'What we lost: {what_they_get}')
     print(f'What we got: {what_we_get}')

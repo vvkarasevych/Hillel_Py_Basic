@@ -10,6 +10,8 @@ class Animal:
         self.allowed_meal = allowed_meal
         self.age = age
         self.say_word = '???'
+        #  checking ate animal or not
+        self.fed_check = False
 
     def eat(self, food: str):
         """
@@ -18,9 +20,13 @@ class Animal:
         """
         if food in self.allowed_meal:
             print(f'{self.name} кушает {food}')
+            #  checking ate animal or not
+            self.fed_check = True
         else:
             print(f'{self.name} не понимает что можно делать с {food}')
             self.say(2)
+            #  checking ate animal or not
+            self.fed_check = False
 
     def say(self, count: int):
         """
