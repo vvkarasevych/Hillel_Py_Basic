@@ -1,6 +1,10 @@
+# to read lots of files in the directory
 import os
+# to process the CSV
 import csv
+# to process the JSON
 import json
+# to make different all these data.
 from uuid import uuid4
 
 
@@ -14,14 +18,19 @@ def display_dict(external_dict: dict):
         print(f"{key}, {value}")
 
 
-#
+# make a dict to work with
 inner_function_dict = dict()
+# loop to read all files
 for filename in os.listdir("SKU"):
+    # open and nake a path with join to the file in iteration of listdir
     with open(os.path.join("SKU", filename), mode="r", encoding="utf8") as justfile:
+        # we compare the extension pf the file to choose what we need to use
+        # in this case - CSV-module
         if filename.endswith('.csv'):
             file_object = csv.DictReader(justfile)
             for element in file_object:
                 item_id = uuid4()
+                # make a structure for data
                 inner_function_dict[item_id] = {
                     "date": element["date"],
                     "time": element["time"],
@@ -35,10 +44,13 @@ for filename in os.listdir("SKU"):
                     "comment": element["comment"],
                 }
         else:
+            # we compare the extension of the file to choose what we need to use
+            # in this case - JSON-module
             file_object = json.load(justfile)
             file_object = list()
             for element in file_object:
                 item_id = uuid4()
+                # make a structure for data
                 inner_function_dict[item_id] = {
                     "date": element["date"],
                     "time": element["time"],
@@ -52,4 +64,5 @@ for filename in os.listdir("SKU"):
                     "comment": element["comment"],
                 }
 
+#  output the information
 display_dict(inner_function_dict)
